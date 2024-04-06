@@ -255,8 +255,77 @@ namespace PracticumSearchAlgorithms
             }
             */
 
+            /* binary search (бинарный поиск) */
 
+            int[] ar = new int[11];
+            int n = ar.Length;
 
+            Random rnd = new Random();
+            for (int i = 0; i < n; i++)
+            {
+                ar[i] = rnd.Next(20);
+                textbox1.Text += ar[i] + "\n";
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                int min = i;
+
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (ar[j] < ar[min])
+                    {
+                        min = j;
+                    }
+                }
+
+                int tmp = ar[min];
+                ar[min] = ar[i];
+                ar[i] = tmp;
+                {
+
+                }
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                textbox2.Text += ar[i] + "\n";
+            }
+
+            int x = 10;
+            bool found = false;
+
+            int a = 0;
+            int b = n - 1;
+
+            while (b > a + 1)
+            {
+                int k = (a + b) / 2;
+
+                if (ar[k] == x)
+                {
+                    found = true;
+                    textbox3.Text = "x found: " + k;
+                    break;
+                }
+                else
+                {
+                    if (ar[k] > x)
+                    {
+                        b = k;
+                    }
+                    else
+                    {
+                        a = k;
+                    }
+                }
+            }
+
+            if (!found )
+            {
+                textbox3.Text = "Искомый элемент не найден";
+            }
+            
         }
     }
 }

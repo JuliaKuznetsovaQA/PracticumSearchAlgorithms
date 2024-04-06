@@ -32,16 +32,39 @@ namespace PracticumSearchAlgorithms
             textbox3.Text = "";
 
             int[] a = new int[10];
+            int len = a.Length;
 
             Random random = new Random();
 
-            textbox2.Text = "Hi!";
-
-            for (int i = 0; i < a.Length; i++)
+            for (int i = 0; i < len; i++)
             {
                 a[i] = random.Next(100);
                 textbox1.Text += a[i] + "\n";
             }
+
+            int min = a[0];
+
+            for (int i = 0; i < len; i++)
+            {
+                if (a[i] < min)
+                {
+                    min = a[i];
+                }
+            }
+
+            int max = a[0];
+
+            for (int i = 0; i < len; i++)
+            {
+                if (a[i] > max)
+                {
+                    max = a[i];
+                }
+            }
+
+            textbox2.Text = "min = " + min;
+            textbox3.Text = "max = " + max;
+
 
             /* int a = 5;
             int b = 3;

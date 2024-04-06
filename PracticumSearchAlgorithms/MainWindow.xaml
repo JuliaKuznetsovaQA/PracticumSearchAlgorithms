@@ -21,9 +21,9 @@
 
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox x:Name="textbox1" TextWrapping="Wrap" Text="TextBox1" Width="120" Margin="20,0,20,0"/>
-            <TextBox x:Name="textbox2" TextWrapping="Wrap" Text="TextBox2" Width="120" Margin="20,0,20,0"/>
-            <TextBox x:Name="textbox3" TextWrapping="Wrap" Text="TextBox3" Width="120" Margin="20,0,20,0"/>
+            <TextBox x:Name="textbox1" TextWrapping="Wrap" Text="TextBox1" Width="150" Margin="20,0,20,0"/>
+            <TextBox x:Name="textbox2" TextWrapping="Wrap" Text="TextBox2" Width="150" Margin="20,0,20,0"/>
+            <TextBox x:Name="textbox3" TextWrapping="Wrap" Text="TextBox3" Width="150" Margin="20,0,20,0"/>
 
         </StackPanel>
 

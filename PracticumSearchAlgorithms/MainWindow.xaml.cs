@@ -31,7 +31,9 @@ namespace PracticumSearchAlgorithms
             textbox2.Text = "";
             textbox3.Text = "";
 
-            int[] a = new int[10];
+            /* simple bubble sort
+             
+                        int[] a = new int[10];
             int n = a.Length;
             int changes = 0;
             int swap_count = 0;
@@ -44,8 +46,47 @@ namespace PracticumSearchAlgorithms
                 textbox1.Text += a[i] + "\n";
             }
 
+            for (int k = 0; k < n; k++)
+            {
+                for (int i = 0; i < n - k - 1; i++)
+                {
+                    changes ++;
+                    if (a[i] > a[i + 1])
+                    {
+                        swap_count++;
+                        int с = a[i];
+                        a[i] = a[i + 1];
+                        a[i + 1] = с;
+                    }
 
-            // сортировка пузырьком
+                }
+                
+            }
+
+
+            for (int i = 0; i < n; i++)
+            {
+                textbox2.Text += a[i] + "\n";
+            }
+
+
+            textbox3.Text += "количество сравнений = " + changes + "\n" + "количество перестановок = " + swap_count;
+            */
+
+            /* bubble sort swapped
+
+            int[] a = new int[10];
+            int n = a.Length;
+            int changes = 0;
+            int swap_count = 0;
+
+            Random random = new Random();
+
+            for (int i = 0; i < n; i++)
+            {
+                a[i] = random.Next(100);
+                textbox1.Text += a[i] + "\n";
+            }
 
             for (int k = 0; k < n; k++)
             {
@@ -78,7 +119,7 @@ namespace PracticumSearchAlgorithms
 
 
             textbox3.Text += "количество сравнений = " + changes + "\n" + "количество перестановок = " + swap_count;
-
+            */
 
             /*    поиск min и max в массиве
                 int min = a[0];
@@ -100,7 +141,6 @@ namespace PracticumSearchAlgorithms
                 textbox2.Text = "min = " + min;
                 textbox3.Text = "max = " + max; */
 
-
             /* обмен значениями двух переменных
             int a = 5;
             int b = 3;
@@ -110,6 +150,113 @@ namespace PracticumSearchAlgorithms
             b = c;
 
             textbox1.Text = "a = " + a + ", b = " + b; */
+
+            /* insert sort (сортировка вставками) 
+
+            int[] a = new int[10];
+            int n = a.Length;
+
+            Random rnd = new Random();  
+            for (int i = 0; i < n; i++)
+            {
+                a[i] = rnd.Next(100);
+                textbox1.Text += a[i] + "\n";
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                int x = a[i];
+
+                for (int j = i - 1; j >= 0 && a[j] > x; j--)
+                {
+                    a[j + 1] = a[j];
+                    a[j] = x;
+                }
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                textbox2.Text += a[i] + "\n";
+            }
+            */
+
+            /* selection sort (сортировка методом выбора) 
+
+            int[] a = new int[10];
+            int n = a.Length;
+
+            Random rnd = new Random();
+            for (int i = 0; i < n; i++)
+            {
+                a[i] = rnd.Next(100);
+                textbox1.Text += a[i] + "\n";
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                int min = i;
+
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (a[j] < a[min])
+                    {
+                        min = j;
+                    }
+                }
+
+                int tmp = a[min];
+                a[min] = a[i]; 
+                a[i] = tmp;
+                {
+
+                }
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                textbox2.Text += a[i] + "\n";
+            }
+            */
+
+            /* linear search (последовательный поиск) 
+
+            int[] a = new int[10];
+            int n = a.Length;
+
+            Random rnd = new Random();
+            for (int i = 0; i < n; i++)
+            {
+                a[i] = rnd.Next(20);
+                textbox1.Text += a[i] + "\n";
+            }
+
+            int x = 10;
+
+            bool found = false;
+            int k = 0;
+
+            for (int i = 0; i < n; i++)
+            {
+                if (a[i] == x)
+                {
+                    found = true;
+                    k = i;
+                    break;
+                }
+            }
+
+            if (found)
+            {
+                textbox2.Text = "Индекс элемента: " + k;
+            }
+            else
+            {
+                textbox2.Text = "Искомый элемент не найден";
+            }
+            */
+
+
+
         }
     }
 }

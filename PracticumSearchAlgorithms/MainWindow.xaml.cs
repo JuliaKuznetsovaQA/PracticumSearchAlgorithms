@@ -33,8 +33,8 @@ namespace PracticumSearchAlgorithms
 
             int[] a = new int[10];
             int n = a.Length;
-            int cmp = 0;
-            int tr = 0;
+            int changes = 0;
+            int swap_count = 0;
 
             Random random = new Random();
 
@@ -47,18 +47,26 @@ namespace PracticumSearchAlgorithms
 
             // сортировка пузырьком
 
-            for (int k = 0; k < n-1; k++)
+            for (int k = 0; k < n; k++)
             {
-                for (int i = 0; i < n - k-1; i++)
+                bool swap_exists = false;  // усовершенствованный пузырек (переменная swap_exists проверяет, были ли перестановки в проверке)
+
+                for (int i = 0; i < n - k - 1; i++)
                 {
-                    cmp ++;
+                    changes ++;
                     if (a[i] > a[i + 1])
                     {
-                        tr ++;
-                        int x = a[i];
-                        a[i] = a[i+1];
-                        a[i+1] = x;
+                        swap_count++;
+                        swap_exists = true;  // усовершенствованный пузырек
+                        int с = a[i];
+                        a[i] = a[i + 1];
+                        a[i + 1] = с;
                     }
+
+                }
+                if (!swap_exists)   // усовершенствованный пузырек
+                {
+                    break;
                 }
             }
 
@@ -69,7 +77,7 @@ namespace PracticumSearchAlgorithms
             }
 
 
-            textbox3.Text += "количество сравнений = " + cmp + "\n" + "количество перестановок = " + tr;
+            textbox3.Text += "количество сравнений = " + changes + "\n" + "количество перестановок = " + swap_count;
 
 
             /*    поиск min и max в массиве

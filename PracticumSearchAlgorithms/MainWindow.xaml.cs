@@ -32,41 +32,69 @@ namespace PracticumSearchAlgorithms
             textbox3.Text = "";
 
             int[] a = new int[10];
-            int len = a.Length;
+            int n = a.Length;
+            int cmp = 0;
+            int tr = 0;
 
             Random random = new Random();
 
-            for (int i = 0; i < len; i++)
+            for (int i = 0; i < n; i++)
             {
                 a[i] = random.Next(100);
                 textbox1.Text += a[i] + "\n";
             }
 
-            int min = a[0];
 
-            for (int i = 0; i < len; i++)
+            // сортировка пузырьком
+
+            for (int k = 0; k < n-1; k++)
             {
-                if (a[i] < min)
+                for (int i = 0; i < n - k-1; i++)
                 {
-                    min = a[i];
+                    cmp ++;
+                    if (a[i] > a[i + 1])
+                    {
+                        tr ++;
+                        int x = a[i];
+                        a[i] = a[i+1];
+                        a[i+1] = x;
+                    }
                 }
             }
 
-            int max = a[0];
 
-            for (int i = 0; i < len; i++)
+            for (int i = 0; i < n; i++)
             {
-                if (a[i] > max)
-                {
-                    max = a[i];
-                }
+                textbox2.Text += a[i] + "\n";
             }
 
-            textbox2.Text = "min = " + min;
-            textbox3.Text = "max = " + max;
+
+            textbox3.Text += "количество сравнений = " + cmp + "\n" + "количество перестановок = " + tr;
 
 
-            /* int a = 5;
+            /*    поиск min и max в массиве
+                int min = a[0];
+                int max = a[0];
+
+                for (int i = 0; i < n; i++)
+                {
+                    if (a[i] < min)
+                    {
+                        min = a[i];
+                    }
+                    if (a[i] > max)
+                    {
+                        max = a[i];
+                    }
+                }
+
+
+                textbox2.Text = "min = " + min;
+                textbox3.Text = "max = " + max; */
+
+
+            /* обмен значениями двух переменных
+            int a = 5;
             int b = 3;
             int c = a;
 

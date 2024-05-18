@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -255,7 +256,7 @@ namespace PracticumSearchAlgorithms
             }
             */
 
-            /* binary search (бинарный поиск) */
+            /* binary search (бинарный поиск) 
 
             int[] ar = new int[11];
             int n = ar.Length;
@@ -325,6 +326,191 @@ namespace PracticumSearchAlgorithms
             {
                 textbox3.Text = "Искомый элемент не найден";
             }
+            */
+
+            /* случайное перемешивание массива
+
+            textbox1.Text = "";
+            textbox2.Text = "";
+            int[] a = new int[10];
+            int n = a.Length;
+
+            Random rnd = new Random();
+            for (int i = 0; i < n; i++)
+            {
+                a[i] = rnd.Next(n);
+                textbox1.Text += a[i] + "\n";
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                int j = rnd.Next(n);
+                int tmp = a[i];
+                a[i] = a[j];
+                a[j] = tmp;
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                textbox2.Text += a[i] + "\n";
+            }
+            */
+
+            /* перемешивание массива случайным образом, с использованием буферного массива
+
+            textbox1.Text = "";
+            textbox2.Text = "";
+            int[] a = new int[10];
+            int[] b = new int[10];
+            int n = a.Length, c = n;
+
+            Random rnd = new Random();
+            for (int i = 0; i < n; i++)
+            {
+                a[i] = rnd.Next(20);
+                b[i] = a[i];
+                textbox1.Text += a[i] + "\n";
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                int j = rnd.Next(c);
+                a[i] = b[i];
+                for (int k = j; k < c - 2; k++)
+                {
+                    b[k] = b[k + 1];
+                }
+                c--;
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                textbox2.Text += a[i] + "\n";
+            }
+            */
+
+            /* транспонирование матрицы
+            textbox1.Text = "";
+            textbox2.Text = "";
+            int[,] a = { { 1, 2, 3, 4, 5 }, { 1, 2, 3, 4, 5 }, { 1, 2, 3, 4, 5 }, { 1, 2, 3, 4, 5 }, { 1, 2, 3, 4, 5 } };
+            int[,] b = new int[5,5];
+            
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    textbox1.Text += a[i, j] + " ";
+                }
+                textbox1.Text += "\n";
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    b[i, j] = a[j, i];
+                }
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    textbox2.Text += b[i, j] + " ";
+                }
+                textbox2.Text += "\n";
+            }
+            */
+
+            /* простые числа по Эратосфену
+            textbox1.Text = "";
+            textbox2.Text = "";
+            int[] a = new int[50];
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[i] = i;
+                textbox1.Text += a[i] + "\n";
+            }
+
+            int m = 2;
+            int j = 0;
+            a[1] = 0;
+
+            while(m < a.Length)
+            {
+                if (a[m] != 0)
+                {
+                    j = m * 2;
+
+                    while (j < a.Length)
+                    {
+                        a[j] = 0;
+                        j += m;
+                    }
+                }
+                m++;
+            }
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] != 0)
+                {
+                    textbox2.Text += a[i] + "\n";
+                }
+            }
+            */
+
+            /* НОД way 1
+
+            textbox1.Text = "";
+            textbox2.Text = "";
+
+            int a = 17;
+            int b = 34;
+            int min = a;
+            int nod = 0;
+
+            for(int i = min; i > 1; i--)
+            {
+                if (a % i == 0 && b % i == 0) 
+                {
+                    nod = i;
+                    break;
+                }
+            }
+
+            if (nod != 0)
+            {
+                textbox1.Text += nod;
+            }
+            */
+
+            /* Алгоритм Евклида (поиск наибольшего общего делителя)
+            textbox1.Text = "";
+            textbox2.Text = "";
+
+            int a = 17;
+            int b = 34;
+            int nod = 0;
+
+            while (a != 0 && b != 0)
+            {
+                if (a > b)
+                {
+                    a = a % b;
+                }
+                else
+                {
+                    b = b % a;
+                }
+            }
+
+            nod = a + b;
+            textbox1.Text += nod;
+            */
+
             
         }
     }
